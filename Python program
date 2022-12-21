@@ -1,0 +1,95 @@
+import pandas as pd
+import matplotlib.pyplot as plt
+print("PROJECT MADE BY NIKHIL")
+print("TOPIC- GENRAL STORE MANAGEMENT SYSTEM")
+z="y"
+p=int(input("ENTER YOUR AUTHENTICATION : "))				# log in page
+while True :
+ if p==0:								# password
+     while(z=='y'):
+       print('='*84)
+       print("WELCOME")							# main menu
+       print(' 1: STOCKS PRICE \n 2: STAFF \n 3: DATA ANALYSIS OF SHOP ')
+       print('='*84)
+       x=int(input("CHOOSE AN OPTION : "))				#sub menu
+       if(x==1):
+           print('='*84)
+           print('1: FOOD ITEMS \n 2: STATIONARY ITEMS \n 3: EDIT FOOD ITEMS \n 4: EDIT STATIONARY ITEMS ')
+           print('='*84)
+           x1=int(input("ENTER YOUR CHOICE : "))			# according to sub menu select/put the choice of operation
+           if (x1==1):
+                d1={'Items name':['wheat','rice','pulses','salt','sugar','chips','dark_chocolate','milk','curd','gram flour','paneer','tea leaf','noodles','cold drinks','biscuit','icecream'],'Market price':[30,45,55,30,45,15,150,42,35,32,55,60,15,17,10,60],'Our price':[25,40,53,25,43,15,150,41,33,27,50,55,12,15,8,55],'Wholesale price':[15,20,27,18,33,5,60,35,23,17,47,50,10,13,5,50]}
+                d2=pd.DataFrame(d1,columns=('Items name','Market price','Our price','Wholesale price'))
+                print(d2)
+           elif (x1==2):
+                d3={'Items name':['pen','pencil','chart paper','eraser','sharpner','file','notebook (ruled)','geometry notebook','project paper','graph notebook','ruler','geometry box','gum','scissor','coloring items','paper cutter','glitters'],'Market price':[10,5,5,3,3,15,20,25,12,25,15,45,5,30,120,30,10],'Our price':[10,5,5,3,3,15,20,25,12,25,15,45,5,30,115,28,9],'Wholesale price':[10,5,5,3,3,15,20,25,12,25,15,45,5,30,112,25,7]}
+                d4=pd.DataFrame(d3,columns=('Items name','Market price','Our price','Wholesale price'))
+                print(d4)
+           elif (x1==3):
+                  a=input('Enter Items name :')
+                  b=input('Enter Market price :')
+                  c=input('Enter Our price :')
+                  d=input('Enter Wholesale price :')
+                  data={'Items name':a,'Market price':b,'Our price':c,'Wholesale price':d}
+                  d1={'Items name':['wheat','rice','pulses','salt','sugar','chips','dark_chocolate','milk','curd','gram flour'],'Market price':[30,45,55,30,45,15,150,42,35,32],'Our price':[25,40,53,25,43,15,150,41,33,27],'Wholesale price':[15,20,27,18,33,5,60,35,23,17]}
+                  d2=pd.DataFrame(d1,columns=('Items name','Market price','Our price','Wholesale price'))
+                  v=d2.append([data],ignore_index=True)
+                  print(v)
+                  print('data added succesfully')
+           elif (x1==4):
+                  a=input('Enter Items name :')
+                  b=input('Enter Market price :')
+                  c=input('Enter Our price :')
+                  d=input('Enter Wholesale price :')
+                  data={'Items name':a,'Market price':b,'Our price':c,'Wholesale price':d}
+                  v=d2.append([data],ignore_index=True)
+                  print(v)
+                  print('data added succesfully')
+           else:
+                  print('invalid choice')
+                  z=input('do you want to continue y/n')				# confirmation page either user want to continue
+       elif(x==2):
+           print('='*84)
+           print(' 1: STAFF DATA \n 2: EDIT STAFF DATA')					# Staff data 
+           print('='*84)
+           s=int(input('Enter Your Choice : '))
+           if (s==1):
+             sf={'staff name':['ABHIJIT','AISHWARYA', 'MUSKAN','ANIL','KUNAL','PRIYA'],
+             'DOJ':['2/3/2018','5/6/2019','4/11/2018','22/5/2017','30/11/2018'],'Department':
+                 ['Billing counter','stationary','grocery','grocery','billing counter','help centre'],'salary':
+                    [6000,6300,6600,6600,6000,6500],'Shift':['8:00am-1:00pm','9:00am-5:00pm','9:00am-12:00pm','8:00am-1:00pm','1:00pm-7:00pm','1:00pm-7:00pm']}
+             sf1=pd.DataFrame(sf,columns=('staff name','DOJ','Department','salary','Shift'))
+             print(sf1)
+           elif (s==2):
+            a=input('enter staff name :')
+            b=input('enter DOJ :')
+            c=input('enter Department:')
+            d=input('enter salary :')
+            e=input('enter Shift')
+            data={'staff name':a,'DOJ':b,'Department':c,'salary':d,'Shift':e}
+            sf={'staff name':['ABHIJIT', 'AISHWARYA','MUSKAN', 'ANIL', 'KUNAL','PRIYA'],
+             'DOJ':['2/3/2018','5/6/2019','4/11/2017','22/5/2017','30/11/2018','25/3/2019'],'Department':
+                 ['Billing counter','stationary','grocery','grocery','billing counter','help centre'],'salary':
+                    [6000,6300,6600,6600,6000,6500],'Shift':['8:00am-1:00pm','9:00am-5:00pm','9:00am-12:00pm','8:00am-1:00pm','1:00pm-7:00pm','1:00pm-7:00pm']}
+            sf1=pd.DataFrame(sf,columns=('staff name','DOJ','Department','salary','Shift'))
+            v=sf1.append([data],ignore_index=True)
+            print(v)      
+           else:
+            print ('invalid choice')
+       elif(x==3):
+         mon=('Jan','Feb','Mar','April','May','June','Jul','Aug','Sep','Oct')
+         yp=(10,20,30,40,50,60,70,80,90,100) 
+         ug=(40,48,100,90,88,70,75,65,56,69)
+         plt.bar(yp,ug, width=7,align='center',color='blue') 
+         plt.xticks(yp,mon) 
+         plt.xlabel('Months')
+         plt.ylabel('Amount in lakhs') 
+         plt.title('Total Sales of last ten months\n(2020)')
+         plt.show()
+       else:
+        print('invalid choice')
+        z=input(' do you want to continue y/n')
+else:
+     print('incorrect passcode')
+     z=input(' do you want to continue y/n')
+     print('='*84)
